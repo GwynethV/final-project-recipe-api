@@ -5,9 +5,10 @@ import com.example.recipeapi.Domainentity.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-public interface RecipeRepository extends JpaRepository<Recipe, Long> {
-    List<Recipe> findByIngredients(String ingredients);
+@Repository
+public interface RecipeRepository extends JpaRepository<Recipe, String> {
+    List<Recipe> findById(int Id);
 
     List<Recipe> findByNameContaining(String name);
+
 }

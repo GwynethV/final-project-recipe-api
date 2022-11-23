@@ -2,22 +2,23 @@ package com.example.recipeapi.Domainentity;
 import javax.persistence.*;
 
 @Entity
+
 @Table(name = "recipe")
 
 public class Recipe {
-    @Id
+     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @Column(name = "name")
-    private String name;
+    public int Id;
+    /*@Column(name = "name")
+    public String name;
     @Column(name = "Ingredients")
-    private String ingredients;
-    private String list;
-    private String quantity;
+    public String ingredients;
+
     @Column(name = "instructions")
-    private String instructions;
+    public String instructions; */
 
     public Recipe() {
+
     }
 
     public Recipe(String name, String ingredients, String instructions) {
@@ -36,7 +37,7 @@ public class Recipe {
         return name;
     }
 
-    public void setName() {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -44,7 +45,7 @@ public class Recipe {
         return ingredients;
     }
 
-    public void setIngredients() {
+    public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -52,7 +53,7 @@ public class Recipe {
         return instructions;
     }
 
-    public void setInstructions() {
+    public void setInstructions(String instructions) {
         this.instructions = instructions;
 
     }
