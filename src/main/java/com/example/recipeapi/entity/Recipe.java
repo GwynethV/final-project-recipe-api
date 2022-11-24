@@ -12,9 +12,8 @@ import javax.persistence.Table;
 
 
 @Data
-//@AllArgsConstructor
-//@NoArgsConstructor;
-
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity
 @Table(name = "Recipe_Table")
