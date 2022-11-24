@@ -20,12 +20,38 @@ public class RecipeService {
         return repository.saveAll(recipe);
 
     }
-    //Post method
+    //Get method - 3 Methods
+    //Return all Recipes available
     public List<Recipe> getRecipe(){
         return repository.findAll();
 
     }
+    //Return one Recipe based on Id or nothing
     public  Recipe getRecipeById(int Id){
-        return repository.findById(Id).orElse(null);2
+        return repository.findById(Id).orElse(null);
 
-    }}
+
+    }
+    //Return recipe by Name
+    public  Recipe getRecipeByName(String name){
+        return repository.findByName(name);
+}
+
+    //Delete
+    public String deleteRecipe(int id){
+        repository.deleteById(id);
+
+        //Return String -
+        return "Recipe deleted !!"+ id;
+    }
+
+    public Recipe updateRecipe(Recipe recipe) {
+        Recipe existingRecipe = repository.findById(recipe.getId()).orElse(null);
+        existingRecipe.setName(recipe.getName());
+        existingRecipe.setIngredients(recipe.getIngredients());
+        existingRecipe.setInstructions(recipe.getInstructions());
+        return repository.save(existingRecipe);
+
+
+    }
+}
