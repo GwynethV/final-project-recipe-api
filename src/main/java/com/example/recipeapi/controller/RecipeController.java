@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.recipeapi.repository.RecipeRepository;
-import com.example.recipeapi.Domainentity.Recipe;
-
+import com.example.recipeapi.entity.Recipe;
+/*
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
 @RequestMapping("/api")
@@ -36,7 +36,7 @@ public class RecipeController {
             List<Recipe> recipes = new ArrayList<Recipe>();
 
             if (name == null)
-                RecipeRepository.findAll().forEach(recipes::add);
+                RecipeRepository.findAllRecipes().forEach(recipes::add);
             else
                 RecipeRepository.findByNameContaining(name).forEach(recipes::add);
 
