@@ -1,31 +1,38 @@
 package com.example.recipeapi.entity;
 
-
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import javax.persistence.*;
 
-
+//Class as an Entity
 @Entity
+//Defining class as a Table name
+@Table
 public class Recipe {
 
     @Id
+    @Column
     @GeneratedValue()
     private int Id;
 
-
+    @Column
     private String name;
 
 
+    @Column
     private String ingredients;
 
+
+    @Column
     private String instructions;
 public Recipe (){
 
 }
 
-    public Recipe(Long Id,String name, String ingredients, String instructions) {
+    public Recipe(int Id,String name, String ingredients, String instructions) {
         super ();
         this.name = name;
         this.ingredients = ingredients;
@@ -41,7 +48,7 @@ public Recipe (){
     public String getName() {
       return name;
     }
-    public void setName(String Name) {
+    public void setName(String name) {
         this.name = name;
     }
     public String getIngredients() {
